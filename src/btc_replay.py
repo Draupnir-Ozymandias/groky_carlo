@@ -29,7 +29,6 @@ import metrics
 from simulate import HONESTY, LabParams, run_branching
 
 ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT / "data" / "btcusdt_5m"
 RESULTS = ROOT / "results"
 WINDOW = 500
 CAPITAL = 1000.0
@@ -41,14 +40,19 @@ TAUS = (8.0, 15.0, 31.0, 63.0, 127.0)
 MONTHS = [(year, month) for year in (2025, 2026) for month in range(1, 13) if date(year, month, 1) <= date(2026, 10, 1)]
 
 
-def _download() -> None:
-    RAW.mkdir(parents=True, exist_ok=True)
+def _raw(interval: str) -> Path:
+    return ROOT / "data" / f"btcusdt_{interval}"
+
+
+def _download(interval: str = "5m") -> None:
+    raw = _raw(interval)
+    raw.mkdir(parents=True, exist_ok=True)
     for year, month in MONTHS:
-        name = f"BTCUSDT-5m-{year}-{month:02d}.zip"
-        dest = RAW / name
+        name = f"BTCUSDT-{interval}-{year}-{month:02d}.zip"
+        dest = raw / name
         if dest.exists() and dest.stat().st_size > 0:
             continue
-        url = f"https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/5m/{name}"
+        url = f"https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/{interval}/{name}"
         try:
             urllib.request.urlretrieve(url, dest)
             print(f"downloaded {name}")
@@ -58,10 +62,10 @@ def _download() -> None:
             print(f"skip {name}: HTTP {exc.code}")
 
 
-def _bars() -> list[tuple[int, float, float]]:
+def _bars(interval: str = "5m") -> list[tuple[int, float, float]]:
     rows: list[tuple[int, float, float]] = []
     for year, month in MONTHS:
-        path = RAW / f"BTCUSDT-5m-{year}-{month:02d}.zip"
+        path = _raw(interval) / f"BTCUSDT-{interval}-{year}-{month:02d}.zip"
         if not path.exists():
             continue
         with zipfile.ZipFile(path) as archive:
@@ -140,18 +144,30 @@ def _log_growth(terminal: float, ruined: bool) -> float:
     return math.log(wealth / CAPITAL)
 
 
+def _window_from(chunk: list[dict], year: int) -> dict:
+    return {
+        "t0": chunk[0]["t"],
+        "t1": chunk[-1]["t"],
+        "year": year,
+        "outcomes": [row["up"] for row in chunk],
+    }
+
+
 def _windows(rows: list[dict]) -> list[dict]:
+    """500-bar blocks along the whole series. A block is labeled by its first bar."""
     cuts = []
     for start in range(0, len(rows) - WINDOW + 1, WINDOW):
         chunk = rows[start : start + WINDOW]
-        cuts.append(
-            {
-                "t0": chunk[0]["t"],
-                "t1": chunk[-1]["t"],
-                "year": _utc_year(chunk[0]["t"]),
-                "outcomes": [row["up"] for row in chunk],
-            }
-        )
+        cuts.append(_window_from(chunk, _utc_year(chunk[0]["t"])))
+    return cuts
+
+
+def _windows_inside_year(rows: list[dict], year: int) -> list[dict]:
+    """500-bar blocks that start and end in the same calendar year."""
+    year_rows = [row for row in rows if _utc_year(row["t"]) == year]
+    cuts = []
+    for start in range(0, len(year_rows) - WINDOW + 1, WINDOW):
+        cuts.append(_window_from(year_rows[start : start + WINDOW], year))
     return cuts
 
 
@@ -228,7 +244,7 @@ def main() -> None:
     _download()
     bars = _bars()
     if not bars:
-        raise SystemExit(f"no bars in {RAW}")
+        raise SystemExit(f"no bars in {_raw('5m')}")
     decisive, coverage = _directions(bars)
     bits = [row["up"] for row in decisive]
     train = [row for row in decisive if _utc_year(row["t"]) == 2025]

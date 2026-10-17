@@ -2,7 +2,7 @@
 
 Self-contained brief: [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
 
-This directory is the project root. Stake and debt updates are in [docs/equations.md](docs/equations.md). Variable names are in [docs/variables.md](docs/variables.md). When a branch resolves, and when it does not, is in [docs/branching_regimes.md](docs/branching_regimes.md). The Bitcoin 5-minute replay is in [docs/btc_replay.md](docs/btc_replay.md).
+This directory is the project root. Stake and debt updates are in [docs/equations.md](docs/equations.md). Variable names are in [docs/variables.md](docs/variables.md). When a branch resolves, and when it does not, is in [docs/branching_regimes.md](docs/branching_regimes.md). The Bitcoin 5-minute replay is in [docs/btc_replay.md](docs/btc_replay.md). The same replay on 15-minute, 1-hour, 4-hour, and daily bars is in [docs/btc_timeframes.md](docs/btc_timeframes.md).
 
 Branching does not create positive expectancy when \(p \le 0.5\) under even money, and it does not remove the possibility of ruin under finite capital. It only changes the shape of the path.
 
