@@ -1,0 +1,110 @@
+{
+  "config": {
+    "paths": 2000,
+    "horizon": 500,
+    "p": 0.55,
+    "capital": 1000.0,
+    "base": 1.0,
+    "alpha": 0.7,
+    "k": 2,
+    "tau": 8.0,
+    "d_max": 6,
+    "risk_cap": 0.25,
+    "kelly_scale": 0.5,
+    "seed": 42,
+    "trace_paths": 25
+  },
+  "note": "Branching does not create positive expectancy when p <= 0.5 under even money, and it does not remove the possibility of ruin under finite capital. It only changes the shape of the path.",
+  "definitions": {
+    "drawdown": "(peak_equity - equity) / peak_equity",
+    "percentile": "nearest-rank, sorted[ceil(q * n) - 1]",
+    "log_growth": "mean ln(W/C0); ruined or non-positive W uses ln(1/C0)",
+    "log_floor_unit": 1.0,
+    "ruin_step": "1-based index of the first stake that could not be funded",
+    "trace": "One row per settled step. Stake and depth columns are the book that just settled. Debt is post-settlement. reset is 1 if a lineage collapsed on that step.",
+    "paired": true
+  },
+  "strategies": [
+    {
+      "strategy": "pure_martingale",
+      "paths": 2000,
+      "ruin_rate": 0.0935,
+      "median_steps_to_ruin": 173,
+      "median_terminal": 1273.0,
+      "mean_terminal": 1170.0305,
+      "frac_above_start": 0.9065,
+      "frac_hit_1_5_c0": 0.0,
+      "median_max_drawdown": 0.11545454545454545,
+      "p95_max_drawdown": 0.8826574633304572,
+      "mean_log_growth": -0.42715729481596887,
+      "log_floor_unit": 1.0,
+      "frac_with_reset": 0.0,
+      "median_max_depth": 0.0,
+      "max_depth_hist": {
+        "0": 2000
+      }
+    },
+    {
+      "strategy": "flat_kelly",
+      "paths": 2000,
+      "ruin_rate": 0.0,
+      "median_steps_to_ruin": null,
+      "median_terminal": 6529.327223336046,
+      "mean_terminal": 11674.405176611845,
+      "frac_above_start": 0.954,
+      "frac_hit_1_5_c0": 0.9735,
+      "median_max_drawdown": 0.532641820265985,
+      "p95_max_drawdown": 0.7660552879949492,
+      "mean_log_growth": 1.8648443533901575,
+      "log_floor_unit": 1.0,
+      "frac_with_reset": 0.0,
+      "median_max_depth": 0.0,
+      "max_depth_hist": {
+        "0": 2000
+      }
+    },
+    {
+      "strategy": "paroli",
+      "paths": 2000,
+      "ruin_rate": 0.0,
+      "median_steps_to_ruin": null,
+      "median_terminal": 1111.0,
+      "mean_terminal": 1114.5855,
+      "frac_above_start": 0.958,
+      "frac_hit_1_5_c0": 0.0,
+      "median_max_drawdown": 0.03952735383970986,
+      "p95_max_drawdown": 0.07354345749761222,
+      "mean_log_growth": 0.10663212864666292,
+      "log_floor_unit": 1.0,
+      "frac_with_reset": 0.0,
+      "median_max_depth": 0.0,
+      "max_depth_hist": {
+        "0": 2000
+      }
+    },
+    {
+      "strategy": "branching",
+      "paths": 2000,
+      "ruin_rate": 0.0,
+      "median_steps_to_ruin": null,
+      "median_terminal": 946.8520892829836,
+      "mean_terminal": 982.8611515127153,
+      "frac_above_start": 0.3295,
+      "frac_hit_1_5_c0": 0.032,
+      "median_max_drawdown": 0.13182117486851413,
+      "p95_max_drawdown": 0.1965506276674375,
+      "mean_log_growth": -0.027156986317883214,
+      "log_floor_unit": 1.0,
+      "frac_with_reset": 1.0,
+      "median_max_depth": 6.0,
+      "max_depth_hist": {
+        "1": 25,
+        "2": 160,
+        "3": 133,
+        "4": 241,
+        "5": 185,
+        "6": 1256
+      }
+    }
+  ]
+}
