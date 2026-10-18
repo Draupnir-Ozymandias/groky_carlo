@@ -202,33 +202,65 @@ def _leg(
     streak: int,
     prev: float,
     params: LabParams,
-) -> tuple[float, float]:
-    """Continue stake and counter stake. Depth is applied by the caller.
+) -> tuple[float, float, bool]:
+    """Stake on the indebted side, stake aimed at the other side, and whether this is a split.
 
-    A counter stake that opens a clear lineage is a new generation. A counter
-    stake added to a lineage that already has debt is not, so it does not
-    advance depth.
+    On a split the first amount is alpha times the recovery target. The caller
+    may aim that alpha share at the dominant side instead. A stake that opens
+    a clear lineage is a new generation. Adding to a lineage that already has
+    debt does not advance depth.
     """
     target = _recovery(debt, params.base)
     split = streak >= params.k or debt >= params.tau
     if split:
-        return params.alpha * target, (1.0 - params.alpha) * target
+        return params.alpha * target, (1.0 - params.alpha) * target, True
     if prev > EPS:
         # Same escalation as a martingale, but never more than the recovery target.
-        return min(2.0 * prev, target), 0.0
-    return min(target, params.base), 0.0
+        return min(2.0 * prev, target), 0.0, False
+    return min(target, params.base), 0.0, False
 
 
-def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = False) -> PathResult:
+def _aim_alpha(
+    indebted_amt: float,
+    other_amt: float,
+    is_split: bool,
+    indebted_long: bool,
+    dominant_long: bool | None,
+) -> tuple[float, float]:
+    """Put a split's alpha share on the dominant side.
+
+    `_leg` packs alpha onto the indebted side. When the dominant side is the
+    other one, the two amounts swap. An unsplit double is left where it is,
+    and so is a split that has no trend read.
+    """
+    if not is_split or dominant_long is None or indebted_long == dominant_long:
+        return indebted_amt, other_amt
+    return other_amt, indebted_amt
+
+
+def run_branching(
+    outcomes: list[int],
+    params: LabParams,
+    keep_trace: bool = False,
+    bias: list[int | None] | None = None,
+) -> PathResult:
     """Asymmetric long/short recovery with recursive collapse.
 
     A lineage that is not yet branching doubles toward debt+base. After k
     consecutive losses, or once debt reaches tau, that recovery is split:
-    alpha stays on the continue side and (1-alpha) opens or adds to the other
-    side. Opening a clear lineage starts a new generation; adding to a lineage
+    alpha goes to the dominant side when `bias` has a read, and otherwise
+    stays on the indebted side. The rest opens or adds to the other side.
+    Opening a clear lineage starts a new generation; adding to a lineage
     that already has debt does not. A generation above d_max is not opened.
+
+    `bias` aligns with `outcomes`. `1` is an upward trend (dominant long),
+    `0` is a downward trend (dominant short), and None keeps the `p` rule
+    for that step. The fresh stake, the side funded first under the risk
+    cap, and the alpha leg of a split follow that read.
     See module docstring for the expectancy limit.
     """
+    if bias is not None and len(bias) != len(outcomes):
+        raise ValueError(f"bias length {len(bias)} does not match {len(outcomes)} outcomes")
     cash = params.capital
     peak = cash
     max_dd = 0.0
@@ -236,22 +268,45 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
     max_depth = 0
     resets = 0
     budget = params.risk_cap * params.capital
-    favor_long = params.p >= 0.5
     long = Lineage()
     short = Lineage()
     trace: list[dict] = []
+    open_dominant = ""
 
-    def root_amounts() -> tuple[float, float, int, int]:
+    def dominant_at(index: int) -> bool | None:
+        if bias is None or index >= len(bias) or bias[index] is None:
+            return None
+        side = bias[index]
+        if side not in (0, 1):
+            raise ValueError(f"bias entries must be 1, 0, or None, got {side!r}")
+        return side == 1
+
+    def favor_of(dominant_long: bool | None) -> bool:
+        if dominant_long is None:
+            return params.p >= 0.5
+        return dominant_long
+
+    def root_amounts(dominant_long: bool | None) -> tuple[float, float, int, int]:
+        if dominant_long is True:
+            return params.base, 0.0, 0, 0
+        if dominant_long is False:
+            return 0.0, params.base, 0, 0
         if abs(params.p - 0.5) <= EPS:
             return params.base / 2.0, params.base / 2.0, 0, 0
         if params.p > 0.5:
             return params.base, 0.0, 0, 0
         return 0.0, params.base, 0, 0
 
-    def apply_book(long_amt: float, short_amt: float, long_depth: int, short_depth: int) -> None:
-        nonlocal max_depth
+    def apply_book(
+        long_amt: float,
+        short_amt: float,
+        long_depth: int,
+        short_depth: int,
+        dominant_long: bool | None,
+    ) -> None:
+        nonlocal max_depth, open_dominant
         fitted_long, fitted_short = fit_stakes(
-            long_amt, short_amt, cash, budget, params.base, favor_long
+            long_amt, short_amt, cash, budget, params.base, favor_of(dominant_long)
         )
         total = fitted_long + fitted_short
         if total > cash + 1e-6 or total > budget + 1e-6:
@@ -265,10 +320,22 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
         long.active = fitted_long > EPS
         short.active = fitted_short > EPS
         max_depth = max(max_depth, long.depth, short.depth)
+        if dominant_long is True:
+            open_dominant = "long"
+        elif dominant_long is False:
+            open_dominant = "short"
+        else:
+            open_dominant = ""
 
-    def propose(prev_long: float, prev_short: float, just_long: bool, just_short: bool) -> None:
+    def propose(
+        prev_long: float,
+        prev_short: float,
+        just_long: bool,
+        just_short: bool,
+        dominant_long: bool | None,
+    ) -> None:
         if long.debt <= EPS and short.debt <= EPS:
-            apply_book(*root_amounts())
+            apply_book(*root_amounts(dominant_long), dominant_long)
             return
 
         long_amt = 0.0
@@ -281,14 +348,16 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
         short_counter = 0.0
 
         if long.debt > EPS:
-            long_amt, long_counter = _leg(long.debt, long.streak, prev_long, params)
+            stay, counter, is_split = _leg(long.debt, long.streak, prev_long, params)
+            long_amt, long_counter = _aim_alpha(stay, counter, is_split, True, dominant_long)
         elif just_long:
             # Collapse returns this lineage to a base stake. A spawn may add to it.
             long_amt = params.base
             long_depth = 0
 
         if short.debt > EPS:
-            short_amt, short_counter = _leg(short.debt, short.streak, prev_short, params)
+            stay, counter, is_split = _leg(short.debt, short.streak, prev_short, params)
+            short_amt, short_counter = _aim_alpha(stay, counter, is_split, False, dominant_long)
         elif just_short:
             short_amt = params.base
             short_depth = 0
@@ -315,9 +384,9 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
             else:
                 add_long += short_counter
 
-        apply_book(long_amt + add_long, short_amt + add_short, long_depth, short_depth)
+        apply_book(long_amt + add_long, short_amt + add_short, long_depth, short_depth, dominant_long)
 
-    apply_book(*root_amounts())
+    apply_book(*root_amounts(dominant_at(0)), dominant_at(0))
     if long.stake + short.stake <= EPS and cash + EPS < params.base:
         return _empty(cash, max_dd, max_depth, resets, 0, hit, trace, 1)
 
@@ -381,7 +450,8 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
         else:
             reset_flag = 0
 
-        propose(settled_long, settled_short, just_long, just_short)
+        settled_dominant = open_dominant
+        propose(settled_long, settled_short, just_long, just_short, dominant_at(step))
         # Ruin only when another bet is still required. The horizon itself is a stop.
         cannot_continue = (
             step < len(outcomes)
@@ -402,6 +472,7 @@ def run_branching(outcomes: list[int], params: LabParams, keep_trace: bool = Fal
                     "short_depth": depth_short,
                     "reset": reset_flag,
                     "ruined": 1 if cannot_continue else 0,
+                    "dominant": settled_dominant,
                 }
             )
         if cannot_continue:

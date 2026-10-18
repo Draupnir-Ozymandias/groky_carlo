@@ -51,6 +51,22 @@ S_{\text{continue}} = \alpha S, \qquad S_{\text{counter}} = (1 - \alpha) S
 
 with \(\alpha \in [0.5, 1]\). The counter stake opens the other lineage, or adds to the stake that lineage already proposed.
 
+## Dominant side
+
+An optional bias, one entry per outcome, can name the side for the fresh stake and for the alpha share of a split. `1` is long, `0` is short, and None keeps the rule in the rest of this note.
+
+The bias is an EMA crossover. The fast length and the slow length are parameters. The starting pair is 5 and 10. Fast above slow is an upward trend, so the dominant side is long. Fast below slow is a downward trend, so the dominant side is short. A tie, or a bar before both averages are ready, leaves the entry as None.
+
+The average matches QuantConnect's exponential moving average. The first ready value is the simple moving average of the first `length` closes. After that,
+
+\[
+\mathrm{EMA}_t = k\, P_t + (1 - k)\, \mathrm{EMA}_{t-1}, \qquad k = \frac{2}{\mathrm{length}+1}.
+\]
+
+The stake that settles on bar \(t\) uses closes from before \(t\). The first `slow` bars have no read.
+
+An unsplit double stays on the lineage that holds the debt. The filter does not move that double. It does choose the fresh root, the side funded first when the risk cap trims a book, and the side that receives \(\alpha S\) once a split is declared. When that side is the indebted side, the split is the one above. When it is the other side, \(\alpha S\) and \((1-\alpha)S\) swap.
+
 Depth counts generations of the two lineages, not every added unit of stake. If the opposite lineage already has debt, the counter stake is added and its depth stays. If it is clear, the counter stake opens it and its depth becomes the parent's depth plus 1. If that child depth would exceed \(d_{\max}\), do not open it. The continue side then bets \(\min(S, b)\) only.
 
 ## Collapse

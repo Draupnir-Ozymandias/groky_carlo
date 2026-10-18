@@ -13,7 +13,7 @@ Parameters of one run. All four strategies share them and see the same outcomes.
 | \(p\) | `p` | 0.55 | Probability the step is up. Down has probability \(1 - p\). |
 | \(C_0\) | `capital` | 1000 | Starting cash, shared by every strategy. |
 | \(b\) | `base` | 1 | Base stake. A finished cycle is sized to net one base. |
-| \(\alpha\) | `alpha` | 0.70 | Share of a split recovery that stays on the side already in debt. The other side receives \(1 - \alpha\). Range \(0.50\)–\(1\). |
+| \(\alpha\) | `alpha` | 0.70 | Share of a split recovery placed on the dominant side when that side is known. With no trend read, the share stays on the side already in debt. The other side receives \(1 - \alpha\). Range \(0.50\)–\(1\). |
 | \(k\) | `k` | 2 | Consecutive losses on one lineage that force a split. |
 | \(\tau\) | `tau` | \(8b\) | Debt level that forces a split. Measured in cash, so a shorter streak still splits once debt reaches this level. |
 | \(d_{\max}\) | `d_max` | 6 | Deepest generation that may be opened. |
@@ -23,6 +23,18 @@ Parameters of one run. All four strategies share them and see the same outcomes.
 | \(T\) | `horizon` | 500 | Maximum bets on a path. Ruin stops the path sooner. |
 | | `seed` | 42 | Master random seed. Path \(i\) continues that same stream. |
 | | `trace_paths` | 25 | How many branching paths are written to the trace CSV. |
+
+## Directional filter
+
+Names in `src/ema.py`. The engine receives the resulting bias. It does not store the lengths. QuantConnect reads the same two names as project parameters `ema-fast` and `ema-slow`.
+
+| Symbol | Code | Default | Meaning |
+|---|---|---:|---|
+| | `fast` | 5 | Length of the fast EMA. Passed into the update. |
+| | `slow` | 10 | Length of the slow EMA. Must be longer than `fast`. |
+| | `bias` | | One entry per outcome. `1` long, `0` short, None when the crossover is not ready or the two averages are equal. Entry `i` uses closes before bar `i`. |
+
+A trace dict may include `dominant` (`long`, `short`, or empty) for the book that just settled. The CSV writer does not add that column.
 
 ## Outcome and book
 
