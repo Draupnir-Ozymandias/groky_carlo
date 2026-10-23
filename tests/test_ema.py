@@ -22,6 +22,7 @@ from ema import (  # noqa: E402
     ema_values,
     smoothing_factor,
 )
+from optimize_ema import pairs  # noqa: E402
 from simulate import LabParams, make_outcomes, run_branching  # noqa: E402
 
 
@@ -43,6 +44,12 @@ class EmaTests(unittest.TestCase):
         bias = dominant_bias(rising, DEFAULT_FAST_LENGTH, DEFAULT_SLOW_LENGTH)
         self.assertEqual(bias[:DEFAULT_SLOW_LENGTH], [None] * DEFAULT_SLOW_LENGTH)
         self.assertEqual(set(bias[DEFAULT_SLOW_LENGTH:]), {1})
+
+    def test_search_pairs_keep_fast_shorter_than_slow(self) -> None:
+        grid = pairs()
+        self.assertGreater(len(grid), 50)
+        self.assertTrue(all(fast < slow for fast, slow in grid))
+        self.assertIn((DEFAULT_FAST_LENGTH, DEFAULT_SLOW_LENGTH), grid)
 
     def test_fast_must_be_shorter_than_slow(self) -> None:
         with self.assertRaises(ValueError):
@@ -132,6 +139,40 @@ class DominantStakeTests(unittest.TestCase):
     def test_bias_must_cover_every_outcome(self) -> None:
         with self.assertRaises(ValueError):
             run_branching([1, 0], LabParams(), bias=[1])
+
+    def test_bias_after_cash_freezes_under_the_risk_cap(self) -> None:
+        """A read that arrives after both legs are cut to base copies the unfiltered path.
+
+        The default book soon proposes more than the risk budget. The cap then
+        keeps one base stake on each side, cash stops moving, and a later
+        dominant side has nothing left to aim. A read on the opening stake
+        still changes the terminal.
+        """
+        params = LabParams(
+            capital=1000, base=1, p=0.5, alpha=0.70, k=2, tau=8.0, d_max=6, risk_cap=0.25
+        )
+        outcomes = [random.Random(2).randrange(2) for _ in range(120)]
+        plain = run_branching(outcomes, params, keep_trace=True)
+        freeze = None
+        for index, row in enumerate(plain.trace):
+            cash = row["cash"]
+            if all(
+                abs(later["long_stake"] - 1.0) < 1e-9
+                and abs(later["short_stake"] - 1.0) < 1e-9
+                and abs(later["cash"] - cash) < 1e-6
+                for later in plain.trace[index:]
+            ):
+                freeze = index
+                break
+        self.assertIsNotNone(freeze)
+        self.assertLess(freeze, len(outcomes) - 1)
+        late = [None] * (freeze + 1) + [1] * (len(outcomes) - freeze - 1)
+        copied = run_branching(outcomes, params, keep_trace=True, bias=late)
+        _close(self, copied.terminal, plain.terminal)
+        _close(self, copied.trace[-1]["long_debt"], plain.trace[-1]["long_debt"])
+        _close(self, copied.trace[-1]["short_debt"], plain.trace[-1]["short_debt"])
+        early = run_branching(outcomes, params, bias=[1] * len(outcomes))
+        self.assertGreater(abs(early.terminal - plain.terminal), 1.0)
 
     def test_books_stay_within_cash(self) -> None:
         rng = random.Random(11)
