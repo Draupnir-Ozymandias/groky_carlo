@@ -87,6 +87,10 @@ Otherwise escalation freezes. Each positive leg is cut to at most \(b\), favored
 
 If the next book is empty and \(C < b\), and the horizon is not already over, the path is ruined. `ruin_step` is the 1-based index of the stake that could not be funded. Reaching the horizon stops the path even when the stake after the last bet would not have fit.
 
+## Streak Kelly
+
+After a run of exactly \(n\) decisive bars on one side, the fade wins with probability \(p_n\) counted on 2025. Even-money Kelly is \(f^{*} = 2p_n - 1\). The stake is \(\text{kelly\_scale} \times f^{*} \times C\), with the lab scale 0.5. There is no bet when that length has fewer than 100 trials, or when \(p_n \le 0.5\). The holdout and the table are in [streak_kelly.md](streak_kelly.md).
+
 ## Log-growth floor
 
 Ensemble mean log-growth is \(\mathbb{E}[\ln(W / C_0)]\). A ruined path, or a non-positive terminal, uses \(W = 1\) (one currency unit). Median terminal wealth still uses the cash that was left.

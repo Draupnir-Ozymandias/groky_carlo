@@ -2,7 +2,7 @@
 
 Self-contained brief: [PROJECT_BRIEF.md](PROJECT_BRIEF.md).
 
-This directory is the project root. Stake and debt updates are in [docs/equations.md](docs/equations.md). Variable names are in [docs/variables.md](docs/variables.md). When a branch resolves, and when it does not, is in [docs/branching_regimes.md](docs/branching_regimes.md). The Bitcoin 5-minute replay is in [docs/btc_replay.md](docs/btc_replay.md). The same replay on 15-minute, 1-hour, 4-hour, and daily bars is in [docs/btc_timeframes.md](docs/btc_timeframes.md). The EMA crossover that sets the dominant side is in [docs/equations.md](docs/equations.md).
+This directory is the project root. Stake and debt updates are in [docs/equations.md](docs/equations.md). Variable names are in [docs/variables.md](docs/variables.md). When a branch resolves, and when it does not, is in [docs/branching_regimes.md](docs/branching_regimes.md). The Bitcoin 5-minute replay is in [docs/btc_replay.md](docs/btc_replay.md). The same replay on 15-minute, 1-hour, 4-hour, and daily bars is in [docs/btc_timeframes.md](docs/btc_timeframes.md). The EMA crossover that sets the dominant side is in [docs/equations.md](docs/equations.md). The length search on the five Bitcoin timeframes is in [docs/ema_optimization.md](docs/ema_optimization.md). The half-Kelly fade of a direction streak is in [docs/streak_kelly.md](docs/streak_kelly.md).
 
 Branching does not create positive expectancy when \(p \le 0.5\) under even money, and it does not remove the possibility of ruin under finite capital. It only changes the shape of the path.
 
@@ -21,7 +21,7 @@ The engine runs pure martingale, half-Kelly, Paroli, and the branching long/shor
 ## Tests
 
 ```bash
-python -m unittest tests.test_branching
+python -m unittest tests.test_branching tests.test_ema tests.test_streak_kelly
 ```
 
 ## Small sweep

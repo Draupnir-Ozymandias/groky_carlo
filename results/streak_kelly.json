@@ -1,0 +1,2575 @@
+{
+  "note": "Branching does not create positive expectancy when p <= 0.5 under even money, and it does not remove the possibility of ruin under finite capital. It only changes the shape of the path.",
+  "abstraction": "Up means close > open. The engine is paid even money on that bit. Kelly sizes the fade. It is not paid the bitcoin return, and it does not create an edge the probability table does not have.",
+  "rule": "Fade the exact streak. Probability from 2025 only. Bet when trials >= 100 and p_hat > 0.5. Stake is 0.5 * (2p - 1) of cash. The streak is carried into 2026. Cash for the holdout starts at 1000.",
+  "rows": [
+    {
+      "interval": "5m",
+      "coverage": {
+        "bars": 183744,
+        "flat": 541,
+        "decisive": 183203,
+        "up_rate": 0.4993095091237589
+      },
+      "train_bars": 104822,
+      "test_bars": 78381,
+      "min_trials": 100,
+      "kelly_scale": 0.5,
+      "edges_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 26282,
+          "fade_wins": 12914,
+          "p_hat": 0.4913629099764097
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 13368,
+          "fade_wins": 6782,
+          "p_hat": 0.5073309395571514
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 6586,
+          "fade_wins": 3304,
+          "p_hat": 0.5016702095353781
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 3282,
+          "fade_wins": 1760,
+          "p_hat": 0.5362583790371724
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 1522,
+          "fade_wins": 808,
+          "p_hat": 0.5308804204993429
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 714,
+          "fade_wins": 380,
+          "p_hat": 0.5322128851540616
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 334,
+          "fade_wins": 181,
+          "p_hat": 0.5419161676646707
+        },
+        {
+          "streak_up": true,
+          "n": 8,
+          "trials": 153,
+          "fade_wins": 88,
+          "p_hat": 0.5751633986928104
+        },
+        {
+          "streak_up": true,
+          "n": 9,
+          "trials": 65,
+          "fade_wins": 36,
+          "p_hat": 0.5538461538461539
+        },
+        {
+          "streak_up": true,
+          "n": 10,
+          "trials": 29,
+          "fade_wins": 17,
+          "p_hat": 0.5862068965517241
+        },
+        {
+          "streak_up": true,
+          "n": 11,
+          "trials": 12,
+          "fade_wins": 3,
+          "p_hat": 0.25
+        },
+        {
+          "streak_up": true,
+          "n": 12,
+          "trials": 9,
+          "fade_wins": 3,
+          "p_hat": 0.3333333333333333
+        },
+        {
+          "streak_up": true,
+          "n": 13,
+          "trials": 6,
+          "fade_wins": 2,
+          "p_hat": 0.3333333333333333
+        },
+        {
+          "streak_up": true,
+          "n": 14,
+          "trials": 4,
+          "fade_wins": 1,
+          "p_hat": 0.25
+        },
+        {
+          "streak_up": true,
+          "n": 15,
+          "trials": 3,
+          "fade_wins": 3,
+          "p_hat": 1.0
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 26282,
+          "fade_wins": 12773,
+          "p_hat": 0.48599802145955406
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 13509,
+          "fade_wins": 6834,
+          "p_hat": 0.5058849655785033
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 6675,
+          "fade_wins": 3460,
+          "p_hat": 0.5183520599250936
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 3215,
+          "fade_wins": 1767,
+          "p_hat": 0.5496111975116641
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 1448,
+          "fade_wins": 735,
+          "p_hat": 0.5075966850828729
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 713,
+          "fade_wins": 386,
+          "p_hat": 0.541374474053296
+        },
+        {
+          "streak_up": false,
+          "n": 7,
+          "trials": 327,
+          "fade_wins": 171,
+          "p_hat": 0.5229357798165137
+        },
+        {
+          "streak_up": false,
+          "n": 8,
+          "trials": 156,
+          "fade_wins": 89,
+          "p_hat": 0.5705128205128205
+        },
+        {
+          "streak_up": false,
+          "n": 9,
+          "trials": 67,
+          "fade_wins": 36,
+          "p_hat": 0.5373134328358209
+        },
+        {
+          "streak_up": false,
+          "n": 10,
+          "trials": 31,
+          "fade_wins": 19,
+          "p_hat": 0.6129032258064516
+        },
+        {
+          "streak_up": false,
+          "n": 11,
+          "trials": 12,
+          "fade_wins": 5,
+          "p_hat": 0.4166666666666667
+        },
+        {
+          "streak_up": false,
+          "n": 12,
+          "trials": 7,
+          "fade_wins": 4,
+          "p_hat": 0.5714285714285714
+        },
+        {
+          "streak_up": false,
+          "n": 13,
+          "trials": 3,
+          "fade_wins": 1,
+          "p_hat": 0.3333333333333333
+        },
+        {
+          "streak_up": false,
+          "n": 14,
+          "trials": 2,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 15,
+          "trials": 2,
+          "fade_wins": 1,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": false,
+          "n": 16,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 17,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 18,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        }
+      ],
+      "playable_2025": [
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 13368,
+          "fade_wins": 6782,
+          "p_hat": 0.5073309395571514
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 6586,
+          "fade_wins": 3304,
+          "p_hat": 0.5016702095353781
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 3282,
+          "fade_wins": 1760,
+          "p_hat": 0.5362583790371724
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 1522,
+          "fade_wins": 808,
+          "p_hat": 0.5308804204993429
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 714,
+          "fade_wins": 380,
+          "p_hat": 0.5322128851540616
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 334,
+          "fade_wins": 181,
+          "p_hat": 0.5419161676646707
+        },
+        {
+          "streak_up": true,
+          "n": 8,
+          "trials": 153,
+          "fade_wins": 88,
+          "p_hat": 0.5751633986928104
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 13509,
+          "fade_wins": 6834,
+          "p_hat": 0.5058849655785033
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 6675,
+          "fade_wins": 3460,
+          "p_hat": 0.5183520599250936
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 3215,
+          "fade_wins": 1767,
+          "p_hat": 0.5496111975116641
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 1448,
+          "fade_wins": 735,
+          "p_hat": 0.5075966850828729
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 713,
+          "fade_wins": 386,
+          "p_hat": 0.541374474053296
+        },
+        {
+          "streak_up": false,
+          "n": 7,
+          "trials": 327,
+          "fade_wins": 171,
+          "p_hat": 0.5229357798165137
+        },
+        {
+          "streak_up": false,
+          "n": 8,
+          "trials": 156,
+          "fade_wins": 89,
+          "p_hat": 0.5705128205128205
+        }
+      ],
+      "train_kelly": {
+        "bars": 104822,
+        "bets": 52002,
+        "wins": 26745,
+        "hit_rate": 0.5143071420329988,
+        "terminal": 1.1550993783167056e+17,
+        "log_growth": 32.38037768402165,
+        "max_drawdown": 0.8367078875635836,
+        "ruined": false,
+        "mean_fraction": 0.014307142033002256,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 13509,
+            "wins": 6834,
+            "hit_rate": 0.5058849655785033,
+            "p_hat": 0.5058849655785033,
+            "trials_2025": 13509,
+            "fraction": 0.005884965578503265
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 6675,
+            "wins": 3460,
+            "hit_rate": 0.5183520599250936,
+            "p_hat": 0.5183520599250936,
+            "trials_2025": 6675,
+            "fraction": 0.01835205992509359
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 3215,
+            "wins": 1767,
+            "hit_rate": 0.5496111975116641,
+            "p_hat": 0.5496111975116641,
+            "trials_2025": 3215,
+            "fraction": 0.049611197511664096
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 1448,
+            "wins": 735,
+            "hit_rate": 0.5075966850828729,
+            "p_hat": 0.5075966850828729,
+            "trials_2025": 1448,
+            "fraction": 0.007596685082872923
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 713,
+            "wins": 386,
+            "hit_rate": 0.541374474053296,
+            "p_hat": 0.541374474053296,
+            "trials_2025": 713,
+            "fraction": 0.04137447405329597
+          },
+          {
+            "streak_up": false,
+            "n": 7,
+            "bets": 327,
+            "wins": 171,
+            "hit_rate": 0.5229357798165137,
+            "p_hat": 0.5229357798165137,
+            "trials_2025": 327,
+            "fraction": 0.022935779816513735
+          },
+          {
+            "streak_up": false,
+            "n": 8,
+            "bets": 156,
+            "wins": 89,
+            "hit_rate": 0.5705128205128205,
+            "p_hat": 0.5705128205128205,
+            "trials_2025": 156,
+            "fraction": 0.07051282051282048
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 13368,
+            "wins": 6782,
+            "hit_rate": 0.5073309395571514,
+            "p_hat": 0.5073309395571514,
+            "trials_2025": 13368,
+            "fraction": 0.007330939557151361
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 6586,
+            "wins": 3304,
+            "hit_rate": 0.5016702095353781,
+            "p_hat": 0.5016702095353781,
+            "trials_2025": 6586,
+            "fraction": 0.0016702095353781088
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 3282,
+            "wins": 1760,
+            "hit_rate": 0.5362583790371724,
+            "p_hat": 0.5362583790371724,
+            "trials_2025": 3282,
+            "fraction": 0.03625837903717244
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 1522,
+            "wins": 808,
+            "hit_rate": 0.5308804204993429,
+            "p_hat": 0.5308804204993429,
+            "trials_2025": 1522,
+            "fraction": 0.03088042049934292
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 714,
+            "wins": 380,
+            "hit_rate": 0.5322128851540616,
+            "p_hat": 0.5322128851540616,
+            "trials_2025": 714,
+            "fraction": 0.03221288515406162
+          },
+          {
+            "streak_up": true,
+            "n": 7,
+            "bets": 334,
+            "wins": 181,
+            "hit_rate": 0.5419161676646707,
+            "p_hat": 0.5419161676646707,
+            "trials_2025": 334,
+            "fraction": 0.041916167664670656
+          },
+          {
+            "streak_up": true,
+            "n": 8,
+            "bets": 153,
+            "wins": 88,
+            "hit_rate": 0.5751633986928104,
+            "p_hat": 0.5751633986928104,
+            "trials_2025": 153,
+            "fraction": 0.07516339869281041
+          }
+        ]
+      },
+      "test_kelly": {
+        "bars": 78381,
+        "bets": 38136,
+        "wins": 19717,
+        "hit_rate": 0.5170180406964547,
+        "terminal": 594894085.1145238,
+        "log_growth": 13.29613866047154,
+        "max_drawdown": 0.9112793347880352,
+        "ruined": false,
+        "mean_fraction": 0.014163375377828143,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 9921,
+            "wins": 5081,
+            "hit_rate": 0.5121459530289285,
+            "p_hat": 0.5058849655785033,
+            "trials_2025": 13509,
+            "fraction": 0.005884965578503265
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 4840,
+            "wins": 2553,
+            "hit_rate": 0.5274793388429752,
+            "p_hat": 0.5183520599250936,
+            "trials_2025": 6675,
+            "fraction": 0.01835205992509359
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 2287,
+            "wins": 1165,
+            "hit_rate": 0.5094009619588982,
+            "p_hat": 0.5496111975116641,
+            "trials_2025": 3215,
+            "fraction": 0.049611197511664096
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 1122,
+            "wins": 552,
+            "hit_rate": 0.4919786096256685,
+            "p_hat": 0.5075966850828729,
+            "trials_2025": 1448,
+            "fraction": 0.007596685082872923
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 570,
+            "wins": 284,
+            "hit_rate": 0.4982456140350877,
+            "p_hat": 0.541374474053296,
+            "trials_2025": 713,
+            "fraction": 0.04137447405329597
+          },
+          {
+            "streak_up": false,
+            "n": 7,
+            "bets": 286,
+            "wins": 165,
+            "hit_rate": 0.5769230769230769,
+            "p_hat": 0.5229357798165137,
+            "trials_2025": 327,
+            "fraction": 0.022935779816513735
+          },
+          {
+            "streak_up": false,
+            "n": 8,
+            "bets": 121,
+            "wins": 62,
+            "hit_rate": 0.512396694214876,
+            "p_hat": 0.5705128205128205,
+            "trials_2025": 156,
+            "fraction": 0.07051282051282048
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 9899,
+            "wins": 5051,
+            "hit_rate": 0.5102535609657541,
+            "p_hat": 0.5073309395571514,
+            "trials_2025": 13368,
+            "fraction": 0.007330939557151361
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 4848,
+            "wins": 2559,
+            "hit_rate": 0.5278465346534653,
+            "p_hat": 0.5016702095353781,
+            "trials_2025": 6586,
+            "fraction": 0.0016702095353781088
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 2289,
+            "wins": 1214,
+            "hit_rate": 0.5303626037570992,
+            "p_hat": 0.5362583790371724,
+            "trials_2025": 3282,
+            "fraction": 0.03625837903717244
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 1075,
+            "wins": 551,
+            "hit_rate": 0.5125581395348837,
+            "p_hat": 0.5308804204993429,
+            "trials_2025": 1522,
+            "fraction": 0.03088042049934292
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 524,
+            "wins": 281,
+            "hit_rate": 0.5362595419847328,
+            "p_hat": 0.5322128851540616,
+            "trials_2025": 714,
+            "fraction": 0.03221288515406162
+          },
+          {
+            "streak_up": true,
+            "n": 7,
+            "bets": 243,
+            "wins": 132,
+            "hit_rate": 0.5432098765432098,
+            "p_hat": 0.5419161676646707,
+            "trials_2025": 334,
+            "fraction": 0.041916167664670656
+          },
+          {
+            "streak_up": true,
+            "n": 8,
+            "bets": 111,
+            "wins": 67,
+            "hit_rate": 0.6036036036036037,
+            "p_hat": 0.5751633986928104,
+            "trials_2025": 153,
+            "fraction": 0.07516339869281041
+          }
+        ]
+      },
+      "test_flat": {
+        "bars": 78381,
+        "bets": 38136,
+        "wins": 19717,
+        "hit_rate": 0.5170180406964547,
+        "terminal": 2298.0,
+        "log_growth": 0.8320391794265639,
+        "max_drawdown": 0.0610738255033557,
+        "ruined": false,
+        "mean_fraction": 0.0006244684081744231,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 9921,
+            "wins": 5081,
+            "hit_rate": 0.5121459530289285,
+            "p_hat": 0.5058849655785033,
+            "trials_2025": 13509,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 4840,
+            "wins": 2553,
+            "hit_rate": 0.5274793388429752,
+            "p_hat": 0.5183520599250936,
+            "trials_2025": 6675,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 2287,
+            "wins": 1165,
+            "hit_rate": 0.5094009619588982,
+            "p_hat": 0.5496111975116641,
+            "trials_2025": 3215,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 1122,
+            "wins": 552,
+            "hit_rate": 0.4919786096256685,
+            "p_hat": 0.5075966850828729,
+            "trials_2025": 1448,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 570,
+            "wins": 284,
+            "hit_rate": 0.4982456140350877,
+            "p_hat": 0.541374474053296,
+            "trials_2025": 713,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 7,
+            "bets": 286,
+            "wins": 165,
+            "hit_rate": 0.5769230769230769,
+            "p_hat": 0.5229357798165137,
+            "trials_2025": 327,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 8,
+            "bets": 121,
+            "wins": 62,
+            "hit_rate": 0.512396694214876,
+            "p_hat": 0.5705128205128205,
+            "trials_2025": 156,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 9899,
+            "wins": 5051,
+            "hit_rate": 0.5102535609657541,
+            "p_hat": 0.5073309395571514,
+            "trials_2025": 13368,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 4848,
+            "wins": 2559,
+            "hit_rate": 0.5278465346534653,
+            "p_hat": 0.5016702095353781,
+            "trials_2025": 6586,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 2289,
+            "wins": 1214,
+            "hit_rate": 0.5303626037570992,
+            "p_hat": 0.5362583790371724,
+            "trials_2025": 3282,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 1075,
+            "wins": 551,
+            "hit_rate": 0.5125581395348837,
+            "p_hat": 0.5308804204993429,
+            "trials_2025": 1522,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 524,
+            "wins": 281,
+            "hit_rate": 0.5362595419847328,
+            "p_hat": 0.5322128851540616,
+            "trials_2025": 714,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 7,
+            "bets": 243,
+            "wins": 132,
+            "hit_rate": 0.5432098765432098,
+            "p_hat": 0.5419161676646707,
+            "trials_2025": 334,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 8,
+            "bets": 111,
+            "wins": 67,
+            "hit_rate": 0.6036036036036037,
+            "p_hat": 0.5751633986928104,
+            "trials_2025": 153,
+            "fraction": null
+          }
+        ]
+      }
+    },
+    {
+      "interval": "15m",
+      "coverage": {
+        "bars": 61248,
+        "flat": 29,
+        "decisive": 61219,
+        "up_rate": 0.49819500481876544
+      },
+      "train_bars": 35031,
+      "test_bars": 26188,
+      "min_trials": 100,
+      "kelly_scale": 0.5,
+      "edges_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 9063,
+          "fade_wins": 4542,
+          "p_hat": 0.5011585567692817
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 4521,
+          "fade_wins": 2358,
+          "p_hat": 0.5215660252156602
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 2163,
+          "fade_wins": 1184,
+          "p_hat": 0.5473878871937125
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 979,
+          "fade_wins": 529,
+          "p_hat": 0.5403472931562819
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 450,
+          "fade_wins": 258,
+          "p_hat": 0.5733333333333334
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 192,
+          "fade_wins": 119,
+          "p_hat": 0.6197916666666666
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 73,
+          "fade_wins": 38,
+          "p_hat": 0.5205479452054794
+        },
+        {
+          "streak_up": true,
+          "n": 8,
+          "trials": 35,
+          "fade_wins": 25,
+          "p_hat": 0.7142857142857143
+        },
+        {
+          "streak_up": true,
+          "n": 9,
+          "trials": 10,
+          "fade_wins": 7,
+          "p_hat": 0.7
+        },
+        {
+          "streak_up": true,
+          "n": 10,
+          "trials": 3,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": true,
+          "n": 11,
+          "trials": 3,
+          "fade_wins": 3,
+          "p_hat": 1.0
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 9062,
+          "fade_wins": 4572,
+          "p_hat": 0.5045243875524167
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 4490,
+          "fade_wins": 2323,
+          "p_hat": 0.5173719376391982
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 2167,
+          "fade_wins": 1160,
+          "p_hat": 0.5353022611905861
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 1007,
+          "fade_wins": 557,
+          "p_hat": 0.5531281032770605
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 450,
+          "fade_wins": 240,
+          "p_hat": 0.5333333333333333
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 210,
+          "fade_wins": 132,
+          "p_hat": 0.6285714285714286
+        },
+        {
+          "streak_up": false,
+          "n": 7,
+          "trials": 78,
+          "fade_wins": 42,
+          "p_hat": 0.5384615384615384
+        },
+        {
+          "streak_up": false,
+          "n": 8,
+          "trials": 36,
+          "fade_wins": 22,
+          "p_hat": 0.6111111111111112
+        },
+        {
+          "streak_up": false,
+          "n": 9,
+          "trials": 14,
+          "fade_wins": 6,
+          "p_hat": 0.42857142857142855
+        },
+        {
+          "streak_up": false,
+          "n": 10,
+          "trials": 8,
+          "fade_wins": 3,
+          "p_hat": 0.375
+        },
+        {
+          "streak_up": false,
+          "n": 11,
+          "trials": 5,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 12,
+          "trials": 5,
+          "fade_wins": 2,
+          "p_hat": 0.4
+        },
+        {
+          "streak_up": false,
+          "n": 13,
+          "trials": 3,
+          "fade_wins": 2,
+          "p_hat": 0.6666666666666666
+        },
+        {
+          "streak_up": false,
+          "n": 14,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 15,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": false,
+          "n": 16,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        }
+      ],
+      "playable_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 9063,
+          "fade_wins": 4542,
+          "p_hat": 0.5011585567692817
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 4521,
+          "fade_wins": 2358,
+          "p_hat": 0.5215660252156602
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 2163,
+          "fade_wins": 1184,
+          "p_hat": 0.5473878871937125
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 979,
+          "fade_wins": 529,
+          "p_hat": 0.5403472931562819
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 450,
+          "fade_wins": 258,
+          "p_hat": 0.5733333333333334
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 192,
+          "fade_wins": 119,
+          "p_hat": 0.6197916666666666
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 9062,
+          "fade_wins": 4572,
+          "p_hat": 0.5045243875524167
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 4490,
+          "fade_wins": 2323,
+          "p_hat": 0.5173719376391982
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 2167,
+          "fade_wins": 1160,
+          "p_hat": 0.5353022611905861
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 1007,
+          "fade_wins": 557,
+          "p_hat": 0.5531281032770605
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 450,
+          "fade_wins": 240,
+          "p_hat": 0.5333333333333333
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 210,
+          "fade_wins": 132,
+          "p_hat": 0.6285714285714286
+        }
+      ],
+      "train_kelly": {
+        "bars": 35031,
+        "bets": 34754,
+        "wins": 17974,
+        "hit_rate": 0.5171778788053174,
+        "terminal": 1.506734053830798e+19,
+        "log_growth": 37.25130591807448,
+        "max_drawdown": 0.8574293570219957,
+        "ruined": false,
+        "mean_fraction": 0.017177878805314396,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 9062,
+            "wins": 4572,
+            "hit_rate": 0.5045243875524167,
+            "p_hat": 0.5045243875524167,
+            "trials_2025": 9062,
+            "fraction": 0.0045243875524166866
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 4490,
+            "wins": 2323,
+            "hit_rate": 0.5173719376391982,
+            "p_hat": 0.5173719376391982,
+            "trials_2025": 4490,
+            "fraction": 0.0173719376391982
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 2167,
+            "wins": 1160,
+            "hit_rate": 0.5353022611905861,
+            "p_hat": 0.5353022611905861,
+            "trials_2025": 2167,
+            "fraction": 0.035302261190586104
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 1007,
+            "wins": 557,
+            "hit_rate": 0.5531281032770605,
+            "p_hat": 0.5531281032770605,
+            "trials_2025": 1007,
+            "fraction": 0.05312810327706052
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 450,
+            "wins": 240,
+            "hit_rate": 0.5333333333333333,
+            "p_hat": 0.5333333333333333,
+            "trials_2025": 450,
+            "fraction": 0.033333333333333326
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 210,
+            "wins": 132,
+            "hit_rate": 0.6285714285714286,
+            "p_hat": 0.6285714285714286,
+            "trials_2025": 210,
+            "fraction": 0.12857142857142856
+          },
+          {
+            "streak_up": true,
+            "n": 1,
+            "bets": 9063,
+            "wins": 4542,
+            "hit_rate": 0.5011585567692817,
+            "p_hat": 0.5011585567692817,
+            "trials_2025": 9063,
+            "fraction": 0.0011585567692816712
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 4521,
+            "wins": 2358,
+            "hit_rate": 0.5215660252156602,
+            "p_hat": 0.5215660252156602,
+            "trials_2025": 4521,
+            "fraction": 0.0215660252156602
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 2163,
+            "wins": 1184,
+            "hit_rate": 0.5473878871937125,
+            "p_hat": 0.5473878871937125,
+            "trials_2025": 2163,
+            "fraction": 0.04738788719371245
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 979,
+            "wins": 529,
+            "hit_rate": 0.5403472931562819,
+            "p_hat": 0.5403472931562819,
+            "trials_2025": 979,
+            "fraction": 0.04034729315628194
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 450,
+            "wins": 258,
+            "hit_rate": 0.5733333333333334,
+            "p_hat": 0.5733333333333334,
+            "trials_2025": 450,
+            "fraction": 0.07333333333333336
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 192,
+            "wins": 119,
+            "hit_rate": 0.6197916666666666,
+            "p_hat": 0.6197916666666666,
+            "trials_2025": 192,
+            "fraction": 0.11979166666666663
+          }
+        ]
+      },
+      "test_kelly": {
+        "bars": 26188,
+        "bets": 25963,
+        "wins": 13517,
+        "hit_rate": 0.5206255055270963,
+        "terminal": 39786621205139.305,
+        "log_growth": 24.406796542100878,
+        "max_drawdown": 0.7966355466129937,
+        "ruined": false,
+        "mean_fraction": 0.016961251585101915,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 6824,
+            "wins": 3424,
+            "hit_rate": 0.5017584994138335,
+            "p_hat": 0.5045243875524167,
+            "trials_2025": 9062,
+            "fraction": 0.0045243875524166866
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 3400,
+            "wins": 1808,
+            "hit_rate": 0.5317647058823529,
+            "p_hat": 0.5173719376391982,
+            "trials_2025": 4490,
+            "fraction": 0.0173719376391982
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 1592,
+            "wins": 844,
+            "hit_rate": 0.5301507537688442,
+            "p_hat": 0.5353022611905861,
+            "trials_2025": 2167,
+            "fraction": 0.035302261190586104
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 748,
+            "wins": 409,
+            "hit_rate": 0.5467914438502673,
+            "p_hat": 0.5531281032770605,
+            "trials_2025": 1007,
+            "fraction": 0.05312810327706052
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 339,
+            "wins": 184,
+            "hit_rate": 0.5427728613569321,
+            "p_hat": 0.5333333333333333,
+            "trials_2025": 450,
+            "fraction": 0.033333333333333326
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 155,
+            "wins": 85,
+            "hit_rate": 0.5483870967741935,
+            "p_hat": 0.6285714285714286,
+            "trials_2025": 210,
+            "fraction": 0.12857142857142856
+          },
+          {
+            "streak_up": true,
+            "n": 1,
+            "bets": 6823,
+            "wins": 3474,
+            "hit_rate": 0.5091601934632859,
+            "p_hat": 0.5011585567692817,
+            "trials_2025": 9063,
+            "fraction": 0.0011585567692816712
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 3349,
+            "wins": 1793,
+            "hit_rate": 0.5353836966258585,
+            "p_hat": 0.5215660252156602,
+            "trials_2025": 4521,
+            "fraction": 0.0215660252156602
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 1556,
+            "wins": 843,
+            "hit_rate": 0.5417737789203085,
+            "p_hat": 0.5473878871937125,
+            "trials_2025": 2163,
+            "fraction": 0.04738788719371245
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 713,
+            "wins": 391,
+            "hit_rate": 0.5483870967741935,
+            "p_hat": 0.5403472931562819,
+            "trials_2025": 979,
+            "fraction": 0.04034729315628194
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 322,
+            "wins": 180,
+            "hit_rate": 0.5590062111801242,
+            "p_hat": 0.5733333333333334,
+            "trials_2025": 450,
+            "fraction": 0.07333333333333336
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 142,
+            "wins": 82,
+            "hit_rate": 0.5774647887323944,
+            "p_hat": 0.6197916666666666,
+            "trials_2025": 192,
+            "fraction": 0.11979166666666663
+          }
+        ]
+      },
+      "test_flat": {
+        "bars": 26188,
+        "bets": 25963,
+        "wins": 13517,
+        "hit_rate": 0.5206255055270963,
+        "terminal": 2071.0,
+        "log_growth": 0.7280315824134472,
+        "max_drawdown": 0.05774783445620789,
+        "ruined": false,
+        "mean_fraction": 0.0006528248062624102,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 6824,
+            "wins": 3424,
+            "hit_rate": 0.5017584994138335,
+            "p_hat": 0.5045243875524167,
+            "trials_2025": 9062,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 3400,
+            "wins": 1808,
+            "hit_rate": 0.5317647058823529,
+            "p_hat": 0.5173719376391982,
+            "trials_2025": 4490,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 1592,
+            "wins": 844,
+            "hit_rate": 0.5301507537688442,
+            "p_hat": 0.5353022611905861,
+            "trials_2025": 2167,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 748,
+            "wins": 409,
+            "hit_rate": 0.5467914438502673,
+            "p_hat": 0.5531281032770605,
+            "trials_2025": 1007,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 339,
+            "wins": 184,
+            "hit_rate": 0.5427728613569321,
+            "p_hat": 0.5333333333333333,
+            "trials_2025": 450,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 6,
+            "bets": 155,
+            "wins": 85,
+            "hit_rate": 0.5483870967741935,
+            "p_hat": 0.6285714285714286,
+            "trials_2025": 210,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 1,
+            "bets": 6823,
+            "wins": 3474,
+            "hit_rate": 0.5091601934632859,
+            "p_hat": 0.5011585567692817,
+            "trials_2025": 9063,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 3349,
+            "wins": 1793,
+            "hit_rate": 0.5353836966258585,
+            "p_hat": 0.5215660252156602,
+            "trials_2025": 4521,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 1556,
+            "wins": 843,
+            "hit_rate": 0.5417737789203085,
+            "p_hat": 0.5473878871937125,
+            "trials_2025": 2163,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 713,
+            "wins": 391,
+            "hit_rate": 0.5483870967741935,
+            "p_hat": 0.5403472931562819,
+            "trials_2025": 979,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 322,
+            "wins": 180,
+            "hit_rate": 0.5590062111801242,
+            "p_hat": 0.5733333333333334,
+            "trials_2025": 450,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 6,
+            "bets": 142,
+            "wins": 82,
+            "hit_rate": 0.5774647887323944,
+            "p_hat": 0.6197916666666666,
+            "trials_2025": 192,
+            "fraction": null
+          }
+        ]
+      }
+    },
+    {
+      "interval": "1h",
+      "coverage": {
+        "bars": 15312,
+        "flat": 1,
+        "decisive": 15311,
+        "up_rate": 0.5012735941479982
+      },
+      "train_bars": 8760,
+      "test_bars": 6551,
+      "min_trials": 100,
+      "kelly_scale": 0.5,
+      "edges_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 2247,
+          "fade_wins": 1111,
+          "p_hat": 0.49443702714730753
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 1136,
+          "fade_wins": 591,
+          "p_hat": 0.5202464788732394
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 545,
+          "fade_wins": 286,
+          "p_hat": 0.5247706422018349
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 259,
+          "fade_wins": 135,
+          "p_hat": 0.5212355212355212
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 124,
+          "fade_wins": 71,
+          "p_hat": 0.5725806451612904
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 53,
+          "fade_wins": 32,
+          "p_hat": 0.6037735849056604
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 21,
+          "fade_wins": 10,
+          "p_hat": 0.47619047619047616
+        },
+        {
+          "streak_up": true,
+          "n": 8,
+          "trials": 11,
+          "fade_wins": 6,
+          "p_hat": 0.5454545454545454
+        },
+        {
+          "streak_up": true,
+          "n": 9,
+          "trials": 5,
+          "fade_wins": 1,
+          "p_hat": 0.2
+        },
+        {
+          "streak_up": true,
+          "n": 10,
+          "trials": 4,
+          "fade_wins": 2,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": true,
+          "n": 11,
+          "trials": 2,
+          "fade_wins": 1,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": true,
+          "n": 12,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": true,
+          "n": 13,
+          "trials": 1,
+          "fade_wins": 0,
+          "p_hat": 0.0
+        },
+        {
+          "streak_up": true,
+          "n": 14,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 2247,
+          "fade_wins": 1129,
+          "p_hat": 0.5024477080551847
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 1117,
+          "fade_wins": 591,
+          "p_hat": 0.5290957923008057
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 526,
+          "fade_wins": 285,
+          "p_hat": 0.5418250950570342
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 241,
+          "fade_wins": 131,
+          "p_hat": 0.5435684647302904
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 110,
+          "fade_wins": 60,
+          "p_hat": 0.5454545454545454
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 50,
+          "fade_wins": 25,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": false,
+          "n": 7,
+          "trials": 25,
+          "fade_wins": 10,
+          "p_hat": 0.4
+        },
+        {
+          "streak_up": false,
+          "n": 8,
+          "trials": 15,
+          "fade_wins": 7,
+          "p_hat": 0.4666666666666667
+        },
+        {
+          "streak_up": false,
+          "n": 9,
+          "trials": 8,
+          "fade_wins": 4,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": false,
+          "n": 10,
+          "trials": 4,
+          "fade_wins": 1,
+          "p_hat": 0.25
+        },
+        {
+          "streak_up": false,
+          "n": 11,
+          "trials": 3,
+          "fade_wins": 1,
+          "p_hat": 0.3333333333333333
+        },
+        {
+          "streak_up": false,
+          "n": 12,
+          "trials": 2,
+          "fade_wins": 1,
+          "p_hat": 0.5
+        },
+        {
+          "streak_up": false,
+          "n": 13,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        }
+      ],
+      "playable_2025": [
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 1136,
+          "fade_wins": 591,
+          "p_hat": 0.5202464788732394
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 545,
+          "fade_wins": 286,
+          "p_hat": 0.5247706422018349
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 259,
+          "fade_wins": 135,
+          "p_hat": 0.5212355212355212
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 124,
+          "fade_wins": 71,
+          "p_hat": 0.5725806451612904
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 2247,
+          "fade_wins": 1129,
+          "p_hat": 0.5024477080551847
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 1117,
+          "fade_wins": 591,
+          "p_hat": 0.5290957923008057
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 526,
+          "fade_wins": 285,
+          "p_hat": 0.5418250950570342
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 241,
+          "fade_wins": 131,
+          "p_hat": 0.5435684647302904
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 110,
+          "fade_wins": 60,
+          "p_hat": 0.5454545454545454
+        }
+      ],
+      "train_kelly": {
+        "bars": 8760,
+        "bets": 6305,
+        "wins": 3279,
+        "hit_rate": 0.5200634417129263,
+        "terminal": 494864.0458222681,
+        "log_growth": 6.204283069939615,
+        "max_drawdown": 0.7701910392814627,
+        "ruined": false,
+        "mean_fraction": 0.020063441712926282,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 2247,
+            "wins": 1129,
+            "hit_rate": 0.5024477080551847,
+            "p_hat": 0.5024477080551847,
+            "trials_2025": 2247,
+            "fraction": 0.002447708055184683
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 1117,
+            "wins": 591,
+            "hit_rate": 0.5290957923008057,
+            "p_hat": 0.5290957923008057,
+            "trials_2025": 1117,
+            "fraction": 0.029095792300805723
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 526,
+            "wins": 285,
+            "hit_rate": 0.5418250950570342,
+            "p_hat": 0.5418250950570342,
+            "trials_2025": 526,
+            "fraction": 0.041825095057034245
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 241,
+            "wins": 131,
+            "hit_rate": 0.5435684647302904,
+            "p_hat": 0.5435684647302904,
+            "trials_2025": 241,
+            "fraction": 0.04356846473029041
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 110,
+            "wins": 60,
+            "hit_rate": 0.5454545454545454,
+            "p_hat": 0.5454545454545454,
+            "trials_2025": 110,
+            "fraction": 0.045454545454545414
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 1136,
+            "wins": 591,
+            "hit_rate": 0.5202464788732394,
+            "p_hat": 0.5202464788732394,
+            "trials_2025": 1136,
+            "fraction": 0.020246478873239382
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 545,
+            "wins": 286,
+            "hit_rate": 0.5247706422018349,
+            "p_hat": 0.5247706422018349,
+            "trials_2025": 545,
+            "fraction": 0.02477064220183489
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 259,
+            "wins": 135,
+            "hit_rate": 0.5212355212355212,
+            "p_hat": 0.5212355212355212,
+            "trials_2025": 259,
+            "fraction": 0.021235521235521193
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 124,
+            "wins": 71,
+            "hit_rate": 0.5725806451612904,
+            "p_hat": 0.5725806451612904,
+            "trials_2025": 124,
+            "fraction": 0.07258064516129037
+          }
+        ]
+      },
+      "test_kelly": {
+        "bars": 6551,
+        "bets": 4741,
+        "wins": 2509,
+        "hit_rate": 0.5292132461506012,
+        "terminal": 1967058.7611925974,
+        "log_growth": 7.5842946914520555,
+        "max_drawdown": 0.43344180991942277,
+        "ruined": false,
+        "mean_fraction": 0.019707429977242143,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 1715,
+            "wins": 837,
+            "hit_rate": 0.4880466472303207,
+            "p_hat": 0.5024477080551847,
+            "trials_2025": 2247,
+            "fraction": 0.002447708055184683
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 878,
+            "wins": 494,
+            "hit_rate": 0.5626423690205011,
+            "p_hat": 0.5290957923008057,
+            "trials_2025": 1117,
+            "fraction": 0.029095792300805723
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 384,
+            "wins": 203,
+            "hit_rate": 0.5286458333333334,
+            "p_hat": 0.5418250950570342,
+            "trials_2025": 526,
+            "fraction": 0.041825095057034245
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 181,
+            "wins": 100,
+            "hit_rate": 0.5524861878453039,
+            "p_hat": 0.5435684647302904,
+            "trials_2025": 241,
+            "fraction": 0.04356846473029041
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 81,
+            "wins": 49,
+            "hit_rate": 0.6049382716049383,
+            "p_hat": 0.5454545454545454,
+            "trials_2025": 110,
+            "fraction": 0.045454545454545414
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 860,
+            "wins": 458,
+            "hit_rate": 0.5325581395348837,
+            "p_hat": 0.5202464788732394,
+            "trials_2025": 1136,
+            "fraction": 0.020246478873239382
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 402,
+            "wins": 232,
+            "hit_rate": 0.5771144278606966,
+            "p_hat": 0.5247706422018349,
+            "trials_2025": 545,
+            "fraction": 0.02477064220183489
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 170,
+            "wins": 100,
+            "hit_rate": 0.5882352941176471,
+            "p_hat": 0.5212355212355212,
+            "trials_2025": 259,
+            "fraction": 0.021235521235521193
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 70,
+            "wins": 36,
+            "hit_rate": 0.5142857142857142,
+            "p_hat": 0.5725806451612904,
+            "trials_2025": 124,
+            "fraction": 0.07258064516129037
+          }
+        ]
+      },
+      "test_flat": {
+        "bars": 6551,
+        "bets": 4741,
+        "wins": 2509,
+        "hit_rate": 0.5292132461506012,
+        "terminal": 1277.0,
+        "log_growth": 0.24451357705040216,
+        "max_drawdown": 0.016267942583732056,
+        "ruined": false,
+        "mean_fraction": 0.0008842158417499922,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 1715,
+            "wins": 837,
+            "hit_rate": 0.4880466472303207,
+            "p_hat": 0.5024477080551847,
+            "trials_2025": 2247,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 878,
+            "wins": 494,
+            "hit_rate": 0.5626423690205011,
+            "p_hat": 0.5290957923008057,
+            "trials_2025": 1117,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 384,
+            "wins": 203,
+            "hit_rate": 0.5286458333333334,
+            "p_hat": 0.5418250950570342,
+            "trials_2025": 526,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 4,
+            "bets": 181,
+            "wins": 100,
+            "hit_rate": 0.5524861878453039,
+            "p_hat": 0.5435684647302904,
+            "trials_2025": 241,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 5,
+            "bets": 81,
+            "wins": 49,
+            "hit_rate": 0.6049382716049383,
+            "p_hat": 0.5454545454545454,
+            "trials_2025": 110,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 860,
+            "wins": 458,
+            "hit_rate": 0.5325581395348837,
+            "p_hat": 0.5202464788732394,
+            "trials_2025": 1136,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 402,
+            "wins": 232,
+            "hit_rate": 0.5771144278606966,
+            "p_hat": 0.5247706422018349,
+            "trials_2025": 545,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 4,
+            "bets": 170,
+            "wins": 100,
+            "hit_rate": 0.5882352941176471,
+            "p_hat": 0.5212355212355212,
+            "trials_2025": 259,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 5,
+            "bets": 70,
+            "wins": 36,
+            "hit_rate": 0.5142857142857142,
+            "p_hat": 0.5725806451612904,
+            "trials_2025": 124,
+            "fraction": null
+          }
+        ]
+      }
+    },
+    {
+      "interval": "4h",
+      "coverage": {
+        "bars": 3828,
+        "flat": 0,
+        "decisive": 3828,
+        "up_rate": 0.504440961337513
+      },
+      "train_bars": 2190,
+      "test_bars": 1638,
+      "min_trials": 100,
+      "kelly_scale": 0.5,
+      "edges_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 572,
+          "fade_wins": 285,
+          "p_hat": 0.4982517482517482
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 287,
+          "fade_wins": 151,
+          "p_hat": 0.5261324041811847
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 136,
+          "fade_wins": 82,
+          "p_hat": 0.6029411764705882
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 54,
+          "fade_wins": 25,
+          "p_hat": 0.46296296296296297
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 29,
+          "fade_wins": 13,
+          "p_hat": 0.4482758620689655
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 16,
+          "fade_wins": 9,
+          "p_hat": 0.5625
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 7,
+          "fade_wins": 4,
+          "p_hat": 0.5714285714285714
+        },
+        {
+          "streak_up": true,
+          "n": 8,
+          "trials": 3,
+          "fade_wins": 3,
+          "p_hat": 1.0
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 572,
+          "fade_wins": 290,
+          "p_hat": 0.506993006993007
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 282,
+          "fade_wins": 149,
+          "p_hat": 0.5283687943262412
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 133,
+          "fade_wins": 79,
+          "p_hat": 0.5939849624060151
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 54,
+          "fade_wins": 29,
+          "p_hat": 0.5370370370370371
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 25,
+          "fade_wins": 13,
+          "p_hat": 0.52
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 12,
+          "fade_wins": 8,
+          "p_hat": 0.6666666666666666
+        },
+        {
+          "streak_up": false,
+          "n": 7,
+          "trials": 4,
+          "fade_wins": 1,
+          "p_hat": 0.25
+        },
+        {
+          "streak_up": false,
+          "n": 8,
+          "trials": 3,
+          "fade_wins": 3,
+          "p_hat": 1.0
+        }
+      ],
+      "playable_2025": [
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 287,
+          "fade_wins": 151,
+          "p_hat": 0.5261324041811847
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 136,
+          "fade_wins": 82,
+          "p_hat": 0.6029411764705882
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 572,
+          "fade_wins": 290,
+          "p_hat": 0.506993006993007
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 282,
+          "fade_wins": 149,
+          "p_hat": 0.5283687943262412
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 133,
+          "fade_wins": 79,
+          "p_hat": 0.5939849624060151
+        }
+      ],
+      "train_kelly": {
+        "bars": 2190,
+        "bets": 1410,
+        "wins": 751,
+        "hit_rate": 0.5326241134751774,
+        "terminal": 100608.33793834942,
+        "log_growth": 4.6112351363220565,
+        "max_drawdown": 0.6814913588746303,
+        "ruined": false,
+        "mean_fraction": 0.032624113475176776,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 572,
+            "wins": 290,
+            "hit_rate": 0.506993006993007,
+            "p_hat": 0.506993006993007,
+            "trials_2025": 572,
+            "fraction": 0.006993006993006978
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 282,
+            "wins": 149,
+            "hit_rate": 0.5283687943262412,
+            "p_hat": 0.5283687943262412,
+            "trials_2025": 282,
+            "fraction": 0.028368794326241176
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 133,
+            "wins": 79,
+            "hit_rate": 0.5939849624060151,
+            "p_hat": 0.5939849624060151,
+            "trials_2025": 133,
+            "fraction": 0.09398496240601506
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 287,
+            "wins": 151,
+            "hit_rate": 0.5261324041811847,
+            "p_hat": 0.5261324041811847,
+            "trials_2025": 287,
+            "fraction": 0.026132404181184676
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 136,
+            "wins": 82,
+            "hit_rate": 0.6029411764705882,
+            "p_hat": 0.6029411764705882,
+            "trials_2025": 136,
+            "fraction": 0.1029411764705882
+          }
+        ]
+      },
+      "test_kelly": {
+        "bars": 1638,
+        "bets": 1044,
+        "wins": 570,
+        "hit_rate": 0.5459770114942529,
+        "terminal": 17871.253282279205,
+        "log_growth": 2.883193460023762,
+        "max_drawdown": 0.7688793345569728,
+        "ruined": false,
+        "mean_fraction": 0.03137854571274572,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 442,
+            "wins": 234,
+            "hit_rate": 0.5294117647058824,
+            "p_hat": 0.506993006993007,
+            "trials_2025": 572,
+            "fraction": 0.006993006993006978
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 208,
+            "wins": 117,
+            "hit_rate": 0.5625,
+            "p_hat": 0.5283687943262412,
+            "trials_2025": 282,
+            "fraction": 0.028368794326241176
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 91,
+            "wins": 52,
+            "hit_rate": 0.5714285714285714,
+            "p_hat": 0.5939849624060151,
+            "trials_2025": 133,
+            "fraction": 0.09398496240601506
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 208,
+            "wins": 113,
+            "hit_rate": 0.5432692307692307,
+            "p_hat": 0.5261324041811847,
+            "trials_2025": 287,
+            "fraction": 0.026132404181184676
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 95,
+            "wins": 54,
+            "hit_rate": 0.5684210526315789,
+            "p_hat": 0.6029411764705882,
+            "trials_2025": 136,
+            "fraction": 0.1029411764705882
+          }
+        ]
+      },
+      "test_flat": {
+        "bars": 1638,
+        "bets": 1044,
+        "wins": 570,
+        "hit_rate": 0.5459770114942529,
+        "terminal": 1096.0,
+        "log_growth": 0.09166718852582387,
+        "max_drawdown": 0.023121387283236993,
+        "ruined": false,
+        "mean_fraction": 0.000958770948779835,
+        "by_length": [
+          {
+            "streak_up": false,
+            "n": 1,
+            "bets": 442,
+            "wins": 234,
+            "hit_rate": 0.5294117647058824,
+            "p_hat": 0.506993006993007,
+            "trials_2025": 572,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 2,
+            "bets": 208,
+            "wins": 117,
+            "hit_rate": 0.5625,
+            "p_hat": 0.5283687943262412,
+            "trials_2025": 282,
+            "fraction": null
+          },
+          {
+            "streak_up": false,
+            "n": 3,
+            "bets": 91,
+            "wins": 52,
+            "hit_rate": 0.5714285714285714,
+            "p_hat": 0.5939849624060151,
+            "trials_2025": 133,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 2,
+            "bets": 208,
+            "wins": 113,
+            "hit_rate": 0.5432692307692307,
+            "p_hat": 0.5261324041811847,
+            "trials_2025": 287,
+            "fraction": null
+          },
+          {
+            "streak_up": true,
+            "n": 3,
+            "bets": 95,
+            "wins": 54,
+            "hit_rate": 0.5684210526315789,
+            "p_hat": 0.6029411764705882,
+            "trials_2025": 136,
+            "fraction": null
+          }
+        ]
+      }
+    },
+    {
+      "interval": "1d",
+      "coverage": {
+        "bars": 638,
+        "flat": 0,
+        "decisive": 638,
+        "up_rate": 0.49686520376175547
+      },
+      "train_bars": 365,
+      "test_bars": 273,
+      "min_trials": 100,
+      "kelly_scale": 0.5,
+      "edges_2025": [
+        {
+          "streak_up": true,
+          "n": 1,
+          "trials": 93,
+          "fade_wins": 37,
+          "p_hat": 0.3978494623655914
+        },
+        {
+          "streak_up": true,
+          "n": 2,
+          "trials": 56,
+          "fade_wins": 37,
+          "p_hat": 0.6607142857142857
+        },
+        {
+          "streak_up": true,
+          "n": 3,
+          "trials": 19,
+          "fade_wins": 12,
+          "p_hat": 0.631578947368421
+        },
+        {
+          "streak_up": true,
+          "n": 4,
+          "trials": 7,
+          "fade_wins": 3,
+          "p_hat": 0.42857142857142855
+        },
+        {
+          "streak_up": true,
+          "n": 5,
+          "trials": 4,
+          "fade_wins": 1,
+          "p_hat": 0.25
+        },
+        {
+          "streak_up": true,
+          "n": 6,
+          "trials": 3,
+          "fade_wins": 2,
+          "p_hat": 0.6666666666666666
+        },
+        {
+          "streak_up": true,
+          "n": 7,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        },
+        {
+          "streak_up": false,
+          "n": 1,
+          "trials": 92,
+          "fade_wins": 47,
+          "p_hat": 0.5108695652173914
+        },
+        {
+          "streak_up": false,
+          "n": 2,
+          "trials": 45,
+          "fade_wins": 18,
+          "p_hat": 0.4
+        },
+        {
+          "streak_up": false,
+          "n": 3,
+          "trials": 27,
+          "fade_wins": 14,
+          "p_hat": 0.5185185185185185
+        },
+        {
+          "streak_up": false,
+          "n": 4,
+          "trials": 13,
+          "fade_wins": 10,
+          "p_hat": 0.7692307692307693
+        },
+        {
+          "streak_up": false,
+          "n": 5,
+          "trials": 3,
+          "fade_wins": 2,
+          "p_hat": 0.6666666666666666
+        },
+        {
+          "streak_up": false,
+          "n": 6,
+          "trials": 1,
+          "fade_wins": 1,
+          "p_hat": 1.0
+        }
+      ],
+      "playable_2025": [],
+      "train_kelly": {
+        "bars": 365,
+        "bets": 0,
+        "wins": 0,
+        "hit_rate": null,
+        "terminal": 1000.0,
+        "log_growth": 0.0,
+        "max_drawdown": 0.0,
+        "ruined": false,
+        "mean_fraction": null,
+        "by_length": []
+      },
+      "test_kelly": {
+        "bars": 273,
+        "bets": 0,
+        "wins": 0,
+        "hit_rate": null,
+        "terminal": 1000.0,
+        "log_growth": 0.0,
+        "max_drawdown": 0.0,
+        "ruined": false,
+        "mean_fraction": null,
+        "by_length": []
+      },
+      "test_flat": {
+        "bars": 273,
+        "bets": 0,
+        "wins": 0,
+        "hit_rate": null,
+        "terminal": 1000.0,
+        "log_growth": 0.0,
+        "max_drawdown": 0.0,
+        "ruined": false,
+        "mean_fraction": null,
+        "by_length": []
+      }
+    }
+  ]
+}
